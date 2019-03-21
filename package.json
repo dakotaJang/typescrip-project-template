@@ -1,0 +1,53 @@
+{
+  "name": "project-template",
+  "version": "0.0.0",
+  "description": "nodejs project template for maximize development experience",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "rollup -c",
+    "check": "npm run test -- --single-run && npm run tslint",
+    "doc:spec": "typedoc --out ./docs/spec --json ./docs/spec/out.json ./specs",
+    "doc:src": "typedoc --out ./docs/src --json ./docs/src/out.json ./src",
+    "predoc": "npm run check",
+    "doc": "npm run doc:spec && npm run doc:src",
+    "serve": "concurrently \"npm:build -- -w\" \"npm:start\" \"npm:test\"",
+    "prestart": "npm run build",
+    "start": "nodemon --ignore '*.ts' --inspect=9000 ./dist/server/index --exec \"npm run tslint && node\"",
+    "test": "karma start",
+    "tslint": "tslint -p ."
+  },
+  "keywords": [
+    "project",
+    "template",
+    "tsdoc",
+    "typescript",
+    "karma"
+  ],
+  "author": "dakotaJang",
+  "license": "MIT",
+  "engines": {
+    "nodejs": "10.14.1",
+    "npm": "6.4.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.3.10",
+    "@types/node": "^10.14.1",
+    "concurrently": "^4.1.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^4.0.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "^4.0.0",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.6.0",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "tslint": "^5.14.0",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {}
+}
