@@ -1,5 +1,5 @@
-import { World } from '../../src/models/World';
-import { WorldGeometry } from '../../src/models/WorldGeometry';
+import { World } from 'src/models/World';
+import { WorldGeometry } from 'src/models/WorldGeometry';
 
 // tslint:disable:object-literal-sort-keys
 
@@ -14,13 +14,13 @@ const suite: any = {
       const world = new World();
       expect(world.name).toBe('Earth');
       expect(world.geometry).toBe(WorldGeometry.round);
-      expect(world.mass).toBeUndefined();
+      expect(world.mass).toBeNaN();
     },
     'initialized with parameter: name': () => {
       const name = 'Mars';
       const world = new World({name});
       expect(world.geometry).toBe(WorldGeometry.round);
-      expect(world.mass).toBeUndefined();
+      expect(world.mass).toBeNaN();
       expect(world.name).toBe(name);
     },
     'initialized with parameter: mass': () => {
@@ -34,7 +34,7 @@ const suite: any = {
       const geometry = WorldGeometry.flat;
       const world = new World({geometry});
       expect(world.geometry).toBe(geometry);
-      expect(world.mass).toBeUndefined();
+      expect(world.mass).toBeNaN();
       expect(world.name).toBe('Earth');
     },
     'initialized with parameters: all': () => {

@@ -16,6 +16,11 @@ module.exports = function(config) {
       'src/**/*.ts'
     ],
 
+    karmaTypescriptConfig: {
+      compilerOptions: { module: "commonjs" },
+      tsconfig: "./tsconfig.json",
+    },
+
     // list of files / patterns to exclude
     exclude: [
       'src/server/**/*.ts'

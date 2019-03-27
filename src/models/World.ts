@@ -7,7 +7,7 @@ export class World {
   /** name of the planet */
   public name: string = 'Earth';
   /** mass in kg */
-  public mass: number;
+  public mass: number = NaN;
   /** default geometry will be round */
   public geometry: WorldGeometry = WorldGeometry.round;
 
